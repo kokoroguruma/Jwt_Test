@@ -29,6 +29,7 @@ public class Test1 {
         class AppStr {
 
 
+
             @Getter
             String abcdefg;
 
