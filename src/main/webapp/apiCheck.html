@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ApiCheck</title>
+</head>
+<body>
+
+<h1>APIテスト用</h1>
+
+<hr>
+
+<form>
+
+<table>
+<tr>
+
+<td>
+<div>
+<p>
+  <samp>URL</samp><br>
+  <span>localhost:8080</span><input type="text" id="url" value="/testApi01"><br>
+</p>
+
+<p>
+  <input type="button" id="submitApi" value="更新">
+</p>
+
+  <samp>ヘッダー</samp>
+  <table border="1">
+    <tr>
+      <th></th>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <th>01</th>
+      <td><input type="text" id="key_head01" value="head1"/></td>
+      <td><input type="text" id="val_head01" value="dfgadaw"/></td>
+    </tr>
+    <tr>
+      <th>02</th>
+      <td><input type="text" id="key_head02"/></td>
+      <td><input type="text" id="val_head02"/></td>
+    </tr>
+    <tr>
+      <th>03</th>
+      <td><input type="text" id="key_head03"/></td>
+      <td><input type="text" id="val_head03"/></td>
+    </tr>
+  </table>
+  <br>
+
+
+  <samp>パラメータ</samp>
+  <table border="1">
+    <tr>
+      <th></th>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <th>01</th>
+      <td><input type="text" id="key_data01"/></td>
+      <td><input type="text" id="val_data01"/></td>
+    </tr>
+    <tr>
+      <th>02</th>
+      <td><input type="text" id="key_data02"/></td>
+      <td><input type="text" id="val_data02"/></td>
+    </tr>
+    <tr>
+      <th>03</th>
+      <td><input type="text" id="key_data03"/></td>
+      <td><input type="text" id="val_data03"/></td>
+    </tr>
+    <tr>
+      <th>04</th>
+      <td><input type="text" id="key_data04"/></td>
+      <td><input type="text" id="val_data04"/></td>
+    </tr>
+    <tr>
+      <th>05</th>
+      <td><input type="text" id="key_data05"/></td>
+      <td><input type="text" id="val_data05"/></td>
+    </tr>
+    <tr>
+      <th>06</th>
+      <td><input type="text" id="key_data06"/></td>
+      <td><input type="text" id="val_data06"/></td>
+    </tr>
+    <tr>
+      <th>07</th>
+      <td><input type="text" id="key_data07"/></td>
+      <td><input type="text" id="val_data07"/></td>
+    </tr>
+    <tr>
+      <th>08</th>
+      <td><input type="text" id="key_data08"/></td>
+      <td><input type="text" id="val_data08"/></td>
+    </tr>
+    <tr>
+      <th>09</th>
+      <td><input type="text" id="key_data09"/></td>
+      <td><input type="text" id="val_data09"/></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td><input type="text" id="key_data10"/></td>
+      <td><input type="text" id="val_data10"/></td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td><input type="text" id="key_data11"/></td>
+      <td><input type="text" id="val_data11"/></td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td><input type="text" id="key_data12"/></td>
+      <td><input type="text" id="val_data12"/></td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td><input type="text" id="key_data13"/></td>
+      <td><input type="text" id="val_data13"/></td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td><input type="text" id="key_data14"/></td>
+      <td><input type="text" id="val_data14"/></td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td><input type="text" id="key_data15"/></td>
+      <td><input type="text" id="val_data15"/></td>
+    </tr>
+  </table>
+
+</div>
+</td>
+
+<td>
+  <div id="result"></div>
+</td>
+</tr>
+</table>
+
+</form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$("#submitApi").click(
+
+		function() {
+
+			var urlData = "http://localhost:8080" + $("#url").val();
+
+			var headData = {};
+			if ($("#key_head01").val().length !== 0) {
+				headData[$("#key_head01").val()] = $('#val_head01').val();
+			}
+			if ($("#key_head02").val().length !== 0) {
+				headData[$("#key_head02").val()] = $('#val_head02').val();
+			}
+			if ($("#key_head03").val().length !== 0) {
+				headData[$("#key_head03").val()] = $('#val_head03').val();
+			}
+
+			var dataData = {};
+			dataData[$("#key_data01").val()] = $('#val_data01').val();
+			dataData[$("#key_data02").val()] = $('#val_data02').val();
+			dataData[$("#key_data03").val()] = $('#val_data03').val();
+			dataData[$("#key_data04").val()] = $('#val_data04').val();
+			dataData[$("#key_data05").val()] = $('#val_data05').val();
+			dataData[$("#key_data06").val()] = $('#val_data06').val();
+			dataData[$("#key_data07").val()] = $('#val_data07').val();
+			dataData[$("#key_data08").val()] = $('#val_data08').val();
+			dataData[$("#key_data09").val()] = $('#val_data09').val();
+			dataData[$("#key_data10").val()] = $('#val_data10').val();
+			dataData[$("#key_data11").val()] = $('#val_data11').val();
+			dataData[$("#key_data12").val()] = $('#val_data12').val();
+			dataData[$("#key_data13").val()] = $('#val_data13').val();
+			dataData[$("#key_data14").val()] = $('#val_data14').val();
+			dataData[$("#key_data15").val()] = $('#val_data15').val();
+
+			console.log(urlData);
+			console.log(headData);
+			console.log(dataData);
+
+			$.ajax({
+				url : "http://localhost:8080/testApi01",
+				type : "POST",
+				headers : headData,
+				data : dataData,
+				success : function(result) {
+					console.log("success");
+					console.log(result);
+
+					$("#result").empty();
+					for (key in result) {
+						console.log(key + " : " + result[key]);
+
+						$("#result").append(key + " : " + result[key] + "<br>");
+
+					}
+
+				}
+			})
+		}
+
+);
+</script>
+
+</body>
+</html>

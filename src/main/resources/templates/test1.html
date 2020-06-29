@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<p>
+head1: <span th:text="*{head1}"></span><br>
+data1: <span th:text="*{data1}"></span><br>
+
+
+</p>
+
+<hr color="RED">
+
+<!--
+<form action="test1">
+ -->
+
+<form name="myform">
+
+
+<input type="text" id="headStr1" th:value="*{head1}">
+
+<input type="text" name="data1" th:value="*{data1}">
+
+
+<button onclick="submit()">送信</button>
+
+<!-- <input type="submit" value="送信"> -->
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+
+
+
+function submit() {
+
+	var varHeadStr1 = document.getElementById("headStr1");
+
+	document.myform.setHeader("head1", varHeadStr1);
+	document.myform.action("test1");
+}
+
+
+</script>
+
+
+
+</body>
+</html>

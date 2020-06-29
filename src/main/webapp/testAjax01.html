@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>testAjax01</title>
+</head>
+<body>
+
+  <hr>
+  <form name="form01">
+  <input type="text" id="url" value="/testApi01">
+
+
+    <input type="text" id="data1" value="asvb">
+    <input type="button" id="submit01" value="送信">
+    <input type="button" onclick="submit02()" value="送信02">
+
+  </form>
+
+  <div id="out">aaaaaa</div>
+
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+			var data1Str = document.getElementById("data1");
+
+			$("#submit01").click(
+
+			function() {
+
+				data1Str = document.getElementById("data1");
+
+				$.ajax({
+					url : $("#url").val(),
+					type : "POST",
+					data : {
+						data1 : $('#data1').val(),
+						data2 : "あいう"
+					},
+					headers : {
+						head1 : "bbbb"
+					},
+					success : function(result) {
+
+						console.log(result);
+						console.log(typeof result);
+						console.log(result["head1"]);
+						console.log(result.head1);
+
+
+						$("#out").empty();
+						for (key in result) {
+							console.log(key + " : " + result[key]);
+
+							$("#out").append(key + " : " + result[key] + "<br>");
+
+
+						}
+
+
+
+						result = JSON.stringify(result);
+						console.log(result);
+						console.log(typeof result);
+
+
+						result = $.parseJSON(result);
+						console.log(result);
+						console.log(typeof result);
+
+						console.log(result["head1"]);
+
+//						if (typeof result !== 'undefined') { result = JSON.parse(result); }
+//						result = $.parseJSON(result);
+//						result = $.parseJSON(result.body);
+
+						//						   $('#out').empty();
+						$('#out').append("aaa");
+
+						alert(result);
+					}
+				})
+
+			}
+
+			);
+
+			function submit02() {
+
+				$.ajax({
+					url : "/testApi01",
+					type : "POST",
+					data : {
+						data1 : "aaaa",
+						data2 : "いう"
+					},
+					headers : {
+						head1 : "bbbb"
+					},
+					success : function(result) {
+						alert(result);
+					}
+				});
+
+			}
+		</script>
+
+
+
+  <hr color="RED">
+  <hr>
+  <hr>
+
+
+
+
+
+
+</body>
+</html>
