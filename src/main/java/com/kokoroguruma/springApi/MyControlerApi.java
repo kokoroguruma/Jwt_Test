@@ -3,6 +3,7 @@ package com.kokoroguruma.springApi;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @RestController
 public class MyControlerApi {
-
-
 
     @RequestMapping(value = "/testApi01",
             method = RequestMethod.POST,
@@ -28,6 +30,8 @@ public class MyControlerApi {
             Model model,
             String aaa
             ) {
+
+        log.info("[START] testApi01:{}", head1, head2, data1, data2, data3);
 
         System.out.println("----------------------------------------");
         System.out.println("head1: " + head1);
@@ -78,6 +82,25 @@ public class MyControlerApi {
         return resultMap;
 //        return "ああああああああ";
     }
+
+
+    @RequestMapping(value = "/testCSV01")
+    public ResponseEntity<String> testCSV01() {
+
+
+        return ResponseEntity.ok("aaa");
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
